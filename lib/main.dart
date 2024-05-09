@@ -4,6 +4,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'todo_app/todo_home.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.delayed(const Duration(milliseconds: 500));
   await Hive.initFlutter();
   await Hive.openBox('todobox');
   runApp(const MyApp());
