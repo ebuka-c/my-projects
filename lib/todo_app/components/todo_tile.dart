@@ -37,13 +37,16 @@ class TodoTile extends StatelessWidget {
             height: 100,
             width: screenSize.width,
             decoration: BoxDecoration(
-                color: Colors.yellow, borderRadius: BorderRadius.circular(10)),
+                color: Colors.deepPurpleAccent,
+                borderRadius: BorderRadius.circular(10)),
             child: Row(children: [
               Checkbox(value: done, onChanged: onChanged),
               Text(taskName,
                   style: TextStyle(
                       fontSize: 16,
-                      decoration: done ? TextDecoration.lineThrough : null))
+                      color: Colors.white,
+                      decoration: done ? TextDecoration.lineThrough : null,
+                      decorationColor: Colors.white))
             ])),
       ),
     );

@@ -36,18 +36,17 @@ class _TodoHomeState extends State<TodoHome> {
   }
 
   void createNewTask() {
-    if(_taskController.text.isNotEmpty){
+    if (_taskController.text.isNotEmpty) {
       setState(() {
-      db.todoTasks.add({'isChecked': false, 'taskName': _taskController.text});
-    });
-    db.updateDb();
-    Navigator.pop(context);
-    _taskController.clear();
-    }
-    else {
+        db.todoTasks
+            .add({'isChecked': false, 'taskName': _taskController.text});
+      });
+      db.updateDb();
+      Navigator.pop(context);
+      _taskController.clear();
+    } else {
       print('no task created');
     }
-    
   }
 
   void deleteFn(int index) {
@@ -69,10 +68,13 @@ class _TodoHomeState extends State<TodoHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Colors.deepPurple[200],
       appBar: AppBar(
-          backgroundColor: Colors.yellow,
-          title: const Text('TO-DO'),
+          backgroundColor: Colors.deepPurple,
+          title: const Text(
+            'TO-DO',
+            style: TextStyle(color: Colors.white),
+          ),
           centerTitle: true),
       body: ListView.builder(
           itemBuilder: (context, index) => TodoTile(
@@ -83,9 +85,9 @@ class _TodoHomeState extends State<TodoHome> {
               ),
           itemCount: db.todoTasks.length),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.deepPurpleAccent,
         onPressed: dialogFn,
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
